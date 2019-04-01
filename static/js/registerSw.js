@@ -25,7 +25,7 @@ const initialiseState = (reg) => {
 }
 
 const showNotAllowed = (message) => {
-    const button = document.querySelector('form>button');
+    const button = document.querySelector('h1');
     button.innerHTML = `${message}`;
     button.setAttribute('disabled', 'true');
 };
@@ -72,6 +72,7 @@ const sendSubData = async (subscription) => {
 
     const res = await fetch('/webpush/save_information', {
         method: 'POST',
+	mode: 'cors',
         body: JSON.stringify(data),
         headers: {
             'content-type': 'application/json'
