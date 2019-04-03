@@ -25,7 +25,7 @@ SECRET_KEY = '1pump#xd3^!a&uo3wbe0v3a02idmbdn9rp3v5(azzn%ebh4r&c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.96']
+ALLOWED_HOSTS = ['127.0.0.1','http://ilito.pythonanywhere.com']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpush',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +49,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'push.urls'
 
